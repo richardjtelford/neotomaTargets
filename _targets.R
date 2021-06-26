@@ -5,10 +5,10 @@ tar_option_set(packages = c("neotoma", "tidyverse"))
 
 
 # source target plans
-source("neotoma_download_plan.R")
-source("cleaning_plan.R")
-source("analysis_plan.R")
-source("manuscript_plan.R")
+source("R/neotoma_download_plan.R")
+source("R/cleaning_plan.R")
+source("R/analysis_plan.R")
+source("R/manuscript_plan.R")
 
 
 # Combine target plans
