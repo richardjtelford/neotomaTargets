@@ -3,3 +3,13 @@
 .Rdata
 .httr-oauth
 .DS_Store
+
+# targets cache
+_targets/
+
+# generated bib file
+*2.bib
+
+# output files
+*.tex
+*.pdf

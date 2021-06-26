@@ -1,0 +1,52 @@
+---
+title: Title of submission to PLOS journal
+author:
+  - name: Alice Anonymous
+    email: alice@example.com
+    affiliation: Some Institute of Technology
+    corresponding: alice@example.com
+  - name: Bob Security
+    email: bob@example.com
+    affiliation: 
+      - Another University
+      - Some Institute of Technology
+address:
+  - code: Some Institute of Technology
+    address: Department 1, Street, City, State, Zip
+  - code: Another University
+    address: Department 2, Street, City, State, Zip
+abstract: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+  
+author_summary: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+bibliography: '`r here::here(tar_read(biblio2))`'
+output: rticles::plos_article
+csl: plos.csl
+---
+
+_Text based on plos sample manuscript, see <https://journals.plos.org/ploscompbiol/s/latex>_
+
+# Introduction
+
+The template for this manuscript was made with 
+
+
+```{r, eval = FALSE, echo=TRUE}
+rmarkdown::draft("manuscript", template = "plos", package = "rticles")
+```
+
+This also generated the csl and eps files and a sample bib file.  
+
+The `rticles` package has templates for many journals.
+
+# Methods
+
+All analyses were done in R v. `r getRversion()` [@R] and used
+neotoma v. `r packageVersion("neotoma")` [@neotoma] to extract pollen data from the Neotoma database, 
+and tidyverse v. `r packageVersion("tidyverse")` [@tidyverse] for data manipulation.
+Packages targets v. `r packageVersion("targets")` [@targets], and
+rmarkdown v. `r packageVersion("rmarkdown")` [@rmarkdown1] were used to ensure reproducibility.
+
+# References {#references .unnumbered}
