@@ -15,9 +15,14 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
     bookdown,
+    here,
+    knitr,
     neotoma,
+    rjt.misc (>= 0.0.0.9003),
     rmarkdown,
     rticles,
     tarchetypes,
     targets,
     tidyverse
+Remotes:  
+    richardjtelford/rjt.misc

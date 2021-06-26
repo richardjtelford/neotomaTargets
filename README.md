@@ -11,6 +11,9 @@ It includes sample code for downloading data from Neotoma, cleaning the
 data, analysing the data, and writing a manuscript with R markdown, all
 in a `targets` pipeline.
 
+The aim is that you can make a copy of the template and modify it to
+write your own reproducible manuscripts.
+
 # Installation
 
 `neotomaTargets` is a [template
@@ -28,8 +31,15 @@ use
 devtools::install_deps()
 ```
 
+# Using neotomaTemplate
+
+To run all the analyses and produce the manuscript, open “make.R” and
+run `tar_make()`. This finds the target plan in "\_targets.R“, which is
+assembled from sub-plans in”R/\*-plan.R" files. If you modify any of the
+sub-plans and re-run `tar_make()` only targets which have been outdated
+will be re-run.
+
 # TODO
 
 -   \[\] targets plan to download, and clean neotoma data
 -   \[\] example analysis
--   \[\] example manuscript with bibliography
