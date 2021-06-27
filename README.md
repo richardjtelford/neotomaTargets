@@ -38,8 +38,3 @@ run `tar_make()`. This finds the target plan in "\_targets.R“, which is
 assembled from sub-plans in”R/\*-plan.R" files. If you modify any of the
 sub-plans and re-run `tar_make()` only targets which have been outdated
 will be re-run.
-
-# TODO
-
--   \[\] targets plan to download, and clean neotoma data
--   \[\] example analysis
