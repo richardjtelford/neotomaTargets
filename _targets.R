@@ -13,10 +13,22 @@ source("R/manuscript_plan.R")
 
 
 #Combine target plans
-c(
+combined_plan <- c(
   neotoma_download_plan,
   cleaning_plan,
   analysis_plan,
   figures_plan,
   manuscript_plan
 )
+
+#clean up subplans
+rm(
+  neotoma_download_plan,
+  cleaning_plan,
+  analysis_plan,
+  figures_plan,
+  manuscript_plan
+)
+
+#return combined plan
+combined_plan

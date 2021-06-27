@@ -1,4 +1,4 @@
-library(targets)
+library("targets")
 
 
 # make the targets
