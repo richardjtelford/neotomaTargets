@@ -1,5 +1,5 @@
 ---
-title: Title of submission to PLOS journal
+title: Demo targets plan manuscript
 author:
   - name: Alice Anonymous
     email: alice@example.com
@@ -22,11 +22,29 @@ author_summary: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
 
 bibliography: '`r here::here(tar_read(biblio2))`'
-output: rticles::plos_article
+output:
+  bookdown::pdf_book:
+    base_format: 
+      rticles::plos_article
 csl: plos.csl
 ---
 
 _Text based on plos sample manuscript, see <https://journals.plos.org/ploscompbiol/s/latex>_
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, warning = TRUE, message = TRUE, error = TRUE)
+
+#packages only loaded in this file
+library("english")
+
+#set default theme
+theme_set(theme_bw())
+
+# load required targets
+tar_load(count_summary)
+
+```
+
 
 # Introduction
 
@@ -37,16 +55,41 @@ The template for this manuscript was made with
 rmarkdown::draft("manuscript", template = "plos", package = "rticles")
 ```
 
-This also generated the csl and eps files and a sample bib file.  
-
+This also generated the csl and eps files and a sample bib file.
+I have changed the output in the YAML to use `bookdown` to allow cross-referencing to figures.
+The bibliography section in the YAML is given the dynamically updated bibliography file.
 The `rticles` package has templates for many journals.
 
 # Methods
+
+Norwegian pollen data were downloaded from Neotoma and processed with the experimental package `neotoma2tibble` before pollen counts sums were calculated.
+
+The target that downloads the pollen data uses dynamic branching. 
+This means that if the list of required sites is updated, only the new sites need to be downloaded.
+
+In a real project, use the `renv` package for dependency management.
 
 All analyses were done in R v. `r getRversion()` [@R] and used
 neotoma v. `r packageVersion("neotoma")` [@neotoma] to extract pollen data from the Neotoma database, 
 and tidyverse v. `r packageVersion("tidyverse")` [@tidyverse] for data manipulation.
 Packages targets v. `r packageVersion("targets")` [@targets], and
 rmarkdown v. `r packageVersion("rmarkdown")` [@rmarkdown1] were used to ensure reproducibility.
+
+# Results
+
+`r Words(length(tar_read(pollen_sites)))` Norwegian pollen sites were downloaded from Neotoma (Fig. \@ref(fig:site-map)).
+
+```{r site-map, fig.cap = "Location of pollen records in Norway"}
+tar_read(site_map)
+```
+
+Count sums ranged between `r count_summary$mn` and `r count_summary$mx` (Fig. \@ref(fig:count-plot)). 
+
+```{r count-plot, fig.cap = "Pollen count sums.", fig.height = 3.5, fig.width = 3.5}
+tar_read(count_plot)
+```
+
+
+
 
 # References {#references .unnumbered}
