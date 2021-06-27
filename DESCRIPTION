@@ -1,5 +1,5 @@
 Package: neotomaTargets
-Title: What the Package Does (One Line, Title Case)
+Title: Demonstration of using neotoma with targets
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Richard",
