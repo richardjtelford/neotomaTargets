@@ -34,7 +34,8 @@ devtools::install_deps()
 # Using neotomaTemplate
 
 To run all the analyses and produce the manuscript, open “make.R” and
-run `tar_make()`. This finds the target plan in "\_targets.R“, which is
-assembled from sub-plans in”R/\*-plan.R" files. If you modify any of the
+run `tar_make()`. This finds the target plan in "\_targets.R" (this file
+must have this name and be in the working directory), which is assembled
+from sub-plans in "R/\*-plan.R" files. If you modify any of the
 sub-plans and re-run `tar_make()` only targets which have been outdated
 will be re-run.

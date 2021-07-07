@@ -4,7 +4,7 @@ library("tarchetypes")
 tar_option_set(packages = c("neotoma", "tidyverse",  "neotoma2tibble"))
 
 
-# source target plans
+# source target plans - can also construct plans directly in this file.
 source("R/neotoma_download_plan.R")
 source("R/cleaning_plan.R")
 source("R/analysis_plan.R")
